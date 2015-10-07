@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <title>Coding Dojo</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+  <link href="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/css/select2.min.css" rel="stylesheet" />
+  <script src="//cdnjs.cloudflare.com/ajax/libs/select2/4.0.0/js/select2.min.js"></script>
+  <link href="http://fonts.googleapis.com/css?family=Berkshire+Swash" rel="stylesheet" type="text/css">
+
+
+  <script type="text/javascript">
+  $(document).ready(function() {
+  $(".js-example-basic-single").select2();
+
+});
+  </script>
+   
+  <style type="text/css">
+    .formy{
+        margin: 15px;
+    }
+    *{
+    font-family: Verdana, Geneva, sans-serif;
+    }
+    .container{
+        background: linear-gradient(lightgreen, lightblue);
+        width: 1100px;
+        height: 700px;
+        border: 10px solid black;
+        border-radius: 25px;
+        padding: 30px;
+    }
+    .users{
+       
+        height: 500px;
+        width: 300px;
+        margin-left: 100px;
+        background-color: white;
+        border: 10px solid yellow;
+        border-radius: 20px;
+        display: inline-block;
+        overflow: auto;
+    }
+    button{
+        display: inline-block;
+    }
+    select{
+      width: 100%;
+      width: 150px;
+    }
+    .u{
+        display: inline-block;
+        vertical-align: top;
+
+        width: 100%;
+        height: 100px;
+        margin: 25px;
+    }
+    .ladderB{
+        text-align: center;
+        margin-bottom: 40px;
+        font: 200 40px/1.3 'Berkshire Swash', Helvetica, sans-serif;
+  color: #2b2b2b;
+  text-shadow: 1px 1px 0px #ededed, 4px 4px 0px rgba(0,0,0,0.15);
+    }
+
+    .ladder{
+       text-align: center;
+
+      
+    }
+    .Staff{
+        background-color: black;
+        color: white;
+    }
+    .June_1st{
+        background-color: red;
+        color: white;
+    }
+    .Resident{
+        background-color: grey;
+        color: white;
+    }
+
+    .June_22nd{
+        background-color:green;
+        color: white;
+    }
+    .recent{
+        background-color: white;
+        border: 5px solid orange;
+        width: 550px;
+        height: 260px;
+        margin-left: 25px;
+        display: inline-block;
+        vertical-align: top;
+        border-radius: 20px;
+        padding: 10px;
+        margin-bottom: 20px;
+
+    }
+    .May_10th{
+        background-color: blue;
+        color: white;
+    }
+    .z{
+        display: inline-block;
+        vertical-align: top;
+        width: 550px;
+    }
+    .bar{
+        display: block;
+        font-weight: bold;
+        font-size: 13px;
+        background-color: white;
+        height: 40px;
+        border: 3px solid black;
+        text-align: center;
+
+    }
+    a{
+        color: white;
+    }
+    td{
+        font-size: 14px;
+        height: 38px;
+    }
+    #link{
+      visibility: hidden;
+      display: inline-block;
+      text-align: right;
+      color: black;
+      font-size: 25px;
+      position: absolute;
+      margin-left: 55%;
+      margin-top: -20px;
+      
+    }
+
+
+
+
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <span id = 'link' class="btn btn-danger">
+  <a href="/doubles/landing"> Switch to Doubles</a>
+</span>
+  
+  <h2 class = 'ladderB'>Ping Pong - Singles</h2>
+  
+  <div class = 'users'>
+    <h2 class = 'ladder'>Ladder</h2>
+    <table class="table table-striped">
+        <tbody class = 'smaller'>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Wins</th>
+        <th>Losses</th>
+        <th>Rating</th>
+      </tr>
+    </thead>
+    
+     <% for (var i = 0; i < x.length; i++) { %>
+                      
+      <tr class = "<%= x[i].cohort%>">
+        <td class = "<%= x[i].cohort%>"><a href="/<%= x[i]._id%>"><%= x[i].name%></a></td>
+        <td class = "<%= x[i].cohort%>"><%= x[i].wins %></td>
+        <td class = "<%= x[i].cohort%>"><%= x[i].loses %></td>
+        <td class = "<%= x[i].cohort%>"><%=x[i].rating  %></td>
+      </tr>
+
+     <% } %>
+
+     </tbody>
+  </table>
+  </div>
+  <!-- Trigger the modal with a button -->
+  <div class = 'z'>
+    <div class = 'recent'>
+        <h3 class = 'ladder'>Recent Matches</h3>
+
+        <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Winner</th>
+            <th>Loser</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        
+
+        <% 
+        if (y.length > 3) { %>
+        <% var i =y.length-1
+
+          while (i > y.length-4) { %>
+        <tr>
+
+         <td> <%= y[i].winner %></td>
+         <td><%= y[i].player2 %></td>
+         <td> <%= y[i].date.toLocaleString() %></td>
+        </tr>
+        <% i-- } %>
+        <% } %>
+    </table>
+
+     </div>
+  <div class = 'u'>
+
+    <button type="button" class="btn btn-success  btn-lg btn-block" style = "height: 120px;"data-toggle="modal" data-target="#myModal2">Report a game</button>
+  <br>
+  <button type="button" class="btn btn-info btn-lg btn-block" data-toggle="modal" style = "height: 50px;"data-target="#myModal">Add a new user</button>
+  
+  </div>
+  
+  <div>
+  
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Add new user</h4>
+        </div>
+        <div class="modal-body">
+          <form method = 'post' action = '/add'>
+            <p class = 'formy'>Name : <input type = 'text' name = 'name'></p>
+            <p class = 'formy'> Cohort <select class = "js-example-basic-single" name = 'cohort'>
+                <option value = "Staff"> Staff</option>
+                <option value = "May_10th"> May 10th</option>
+                <option value = "June_1st"> June 1st</option>
+                <option value = "June_22nd"> June 22nd</option>
+                <option value = "Resident"> Resident</option>
+            </select> </p>
+            <p class = 'formy'> <input type = 'Submit' value = 'Create'></p>
+
+          </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+
+  </div>
+
+
+
+  <div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog">
+    
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Report a Game</h4>
+        </div>
+        <div class="modal-body">
+          <form method = 'post' action = '/report'>
+            <p class = 'formy'> Winner: <select class = "js-example-basic-single" name = 'winner'>
+            <option value = ''> </option>
+            <% for (var i = 0; i < x.length; i++) { %>
+            <option value = "<%= x[i]._id %>"><%= x[i].name %> [<%= x[i].cohort %>]
+            
+            </option>
+            <% } %>
+
+            </select> </p>
+
+            <p class = 'formy'> Loser: <select class = "js-example-basic-single" name = 'loser'>
+            <option value = ''> </option>
+            <% for (var i = x.length-1; i > -1; i--) { %>
+            <option value = "<%= x[i]._id %>"><%= x[i].name %> [<%= x[i].cohort %>]
+            
+            </option>
+            <% } %>
+
+            </select> </p>
+            <p class = 'formy'> <input type = 'Submit' value = 'Report Match'></p>
+
+          </form>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+
+  </div>
+  
+</div>
+
+</body>
+</html>

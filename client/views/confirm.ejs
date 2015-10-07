@@ -1,0 +1,27 @@
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+	h1{
+		text-align: center;
+	}
+	.bold{
+		font-size: 50px
+	}
+		
+
+		</style>
+</head>
+<body>
+<h1>ARE YOU SURE YOU WANT TO DELETE </h1>
+<h1 class = 'bold'> <%= x.name %> </h1>
+<h1> 
+<form method = 'post' action = '/die/die'>
+Type in Auth Password<br><input type = 'password' name = 'pw'>
+<input type = 'hidden' name = 'id' value = <%= x._id %> >
+<input type = 'submit'>
+</form>
+
+	</h1>>	
+</body>
+</html>
