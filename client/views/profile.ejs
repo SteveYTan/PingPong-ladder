@@ -17,12 +17,9 @@
   </script>
   <style type="text/css">
 
-  .name{
+.name{
     font-size: 60px;
  }
- .cohort{
-  font-size: 25px;
-}
 .shistory{
   height: 300px;
   width: 1100px;
@@ -78,9 +75,6 @@ select{
 
 
 
-
-
-
 </style>
 </head>
 <body>
@@ -93,8 +87,6 @@ select{
         <div class="row">
           <div class="col-xs-12 col-sm-8">
             <h2 class = 'name'><%=x.name %> <div id = 'des' class = 'btn'> <a href="/<%=x._id%>/destroy"> Delete User</a> </div></h2>
-
-            <p class = 'cohort'><strong></strong> <%= x.cohort %></p>
 
           </div><!--/col-->          
           <div class="col-xs-12 col-sm-4 text-center">
@@ -159,7 +151,7 @@ select{
       <p class = 'formy'> <select class = "js-example-basic-single" name = 'id'>
         <% console.log(everyone);
         for (var i = 0; i < everyone.length; i++) { %>
-        <option value = "<%= everyone[i]._id %>"><%= everyone[i].name %> [<%= everyone[i].cohort %>]
+        <option value = "<%= everyone[i]._id %>"><%= everyone[i].name %> 
         </option>
         <% } %>
 

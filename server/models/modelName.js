@@ -2,7 +2,6 @@ var mongoose = require('mongoose');
 
 var userSchema = new mongoose.Schema({
 	name: String,
-	cohort : String,
 	wins: {type : Number, default: 0 },
 	dwins: {type : Number, default: 0 },
 	loses: {type : Number, default: 0 },

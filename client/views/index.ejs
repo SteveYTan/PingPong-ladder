@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
- <title>Coding Dojo</title>
+ <title>Ping Pong Ladder</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
@@ -73,20 +73,8 @@
 
       
     }
-    .Staff{
-        background-color: black;
-        color: white;
-    }
-    .June_1st{
-        background-color: red;
-        color: white;
-    }
-    .Resident{
-        background-color: grey;
-        color: white;
-    }
 
-    .June_22nd{
+    .LadderNames{
         background-color:green;
         color: white;
     }
@@ -102,10 +90,6 @@
         padding: 10px;
         margin-bottom: 20px;
 
-    }
-    .May_10th{
-        background-color: blue;
-        color: white;
     }
     .z{
         display: inline-block;
@@ -141,16 +125,13 @@
       
     }
 
-
-
-
   </style>
 </head>
 <body>
 
 <div class="container">
   <span id = 'link' class="btn btn-danger">
-  <a href="/doubles/landing"> Switch to Doubles</a>
+  <a href="/doubles/landing">Switch to Doubles</a>
 </span>
   
   <h2 class = 'ladderB'>Ping Pong - Singles</h2>
@@ -170,11 +151,11 @@
     
      <% for (var i = 0; i < x.length; i++) { %>
                       
-      <tr class = "<%= x[i].cohort%>">
-        <td class = "<%= x[i].cohort%>"><a href="/<%= x[i]._id%>"><%= x[i].name%></a></td>
-        <td class = "<%= x[i].cohort%>"><%= x[i].wins %></td>
-        <td class = "<%= x[i].cohort%>"><%= x[i].loses %></td>
-        <td class = "<%= x[i].cohort%>"><%=x[i].rating  %></td>
+      <tr class = "LadderNames">
+        <td class = "LadderNames"><a href="/<%= x[i]._id%>"><%= x[i].name%></a></td>
+        <td class = "LadderNames"><%= x[i].wins %></td>
+        <td class = "LadderNames"><%= x[i].loses %></td>
+        <td class = "LadderNames"><%=x[i].rating  %></td>
       </tr>
 
      <% } %>
@@ -236,13 +217,6 @@
         <div class="modal-body">
           <form method = 'post' action = '/add'>
             <p class = 'formy'>Name : <input type = 'text' name = 'name'></p>
-            <p class = 'formy'> Cohort <select class = "js-example-basic-single" name = 'cohort'>
-                <option value = "Staff"> Staff</option>
-                <option value = "May_10th"> May 10th</option>
-                <option value = "June_1st"> June 1st</option>
-                <option value = "June_22nd"> June 22nd</option>
-                <option value = "Resident"> Resident</option>
-            </select> </p>
             <p class = 'formy'> <input type = 'Submit' value = 'Create'></p>
 
           </form>
@@ -256,8 +230,6 @@
     </div>
 
   </div>
-
-
 
   <div class="modal fade" id="myModal2" role="dialog">
     <div class="modal-dialog">
@@ -274,7 +246,7 @@
             <p class = 'formy'> Winner: <select class = "js-example-basic-single" name = 'winner'>
             <option value = ''> </option>
             <% for (var i = 0; i < x.length; i++) { %>
-            <option value = "<%= x[i]._id %>"><%= x[i].name %> [<%= x[i].cohort %>]
+            <option value = "<%= x[i]._id %>"><%= x[i].name %> 
             
             </option>
             <% } %>
@@ -284,7 +256,7 @@
             <p class = 'formy'> Loser: <select class = "js-example-basic-single" name = 'loser'>
             <option value = ''> </option>
             <% for (var i = x.length-1; i > -1; i--) { %>
-            <option value = "<%= x[i]._id %>"><%= x[i].name %> [<%= x[i].cohort %>]
+            <option value = "<%= x[i]._id %>"><%= x[i].name %> 
             
             </option>
             <% } %>

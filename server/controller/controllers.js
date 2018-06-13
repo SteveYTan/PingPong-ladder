@@ -82,7 +82,7 @@ PingPongController.add = function(request, response){
 
 }
 PingPongController.kill = function(request, response){
-	if (request.body.pw == 'codingdojo12') {
+	if (request.body.pw == 'kill') {
 
 		UsersModel.remove({_id: request.body.id}, function(err,squirrel){
 			response.redirect('/')
